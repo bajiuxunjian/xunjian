@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.xunjian.mapper.ConfigMapper">
+  <resultMap id="BaseResultMap" type="org.xunjian.model.Config">
+    <!--@mbg.generated-->
+    <!--@Table config-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="inspect_function" jdbcType="LONGVARCHAR" property="inspectFunction" />
+    <result column="need_image" jdbcType="BOOLEAN" property="needImage" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="purpose" jdbcType="LONGVARCHAR" property="purpose" />
+    <result column="body" jdbcType="LONGVARCHAR" property="body" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, `name`, inspect_function, need_image, update_time, create_time, purpose, body
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select
+    <include refid="Base_Column_List" />
+    from config
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from config
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="org.xunjian.model.Config" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into config (`name`, inspect_function, need_image,
+      update_time, create_time, purpose,
+      body)
+    values (#{name,jdbcType=VARCHAR}, #{inspectFunction,jdbcType=LONGVARCHAR}, #{needImage,jdbcType=BOOLEAN},
+      #{updateTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP}, #{purpose,jdbcType=LONGVARCHAR},
+      #{body,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="org.xunjian.model.Config" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into config
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="inspectFunction != null">
+        inspect_function,
+      </if>
+      <if test="needImage != null">
+        need_image,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="purpose != null">
+        purpose,
+      </if>
+      <if test="body != null">
+        body,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="inspectFunction != null">
+        #{inspectFunction,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="needImage != null">
+        #{needImage,jdbcType=BOOLEAN},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="purpose != null">
+        #{purpose,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="body != null">
+        #{body,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.xunjian.model.Config">
+    <!--@mbg.generated-->
+    update config
+    <set>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="inspectFunction != null">
+        inspect_function = #{inspectFunction,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="needImage != null">
+        need_image = #{needImage,jdbcType=BOOLEAN},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="purpose != null">
+        purpose = #{purpose,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="body != null">
+        body = #{body,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.xunjian.model.Config">
+    <!--@mbg.generated-->
+    update config
+    set `name` = #{name,jdbcType=VARCHAR},
+      inspect_function = #{inspectFunction,jdbcType=LONGVARCHAR},
+      need_image = #{needImage,jdbcType=BOOLEAN},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      purpose = #{purpose,jdbcType=LONGVARCHAR},
+      body = #{body,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+<!--auto generated by MybatisCodeHelper on 2022-07-10-->
+  <select id="listByAll" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from config
+        <where>
+            <if test="id != null">
+                and id=#{id,jdbcType=BIGINT}
+            </if>
+            <if test="name != null">
+                and `name`=#{name,jdbcType=VARCHAR}
+            </if>
+            <if test="inspectFunction != null">
+                and inspect_function=#{inspectFunction,jdbcType=LONGVARCHAR}
+            </if>
+            <if test="needImage != null">
+                and need_image=#{needImage,jdbcType=BOOLEAN}
+            </if>
+            <if test="updateTime != null">
+                and update_time=#{updateTime,jdbcType=TIMESTAMP}
+            </if>
+            <if test="createTime != null">
+                and create_time=#{createTime,jdbcType=TIMESTAMP}
+            </if>
+            <if test="purpose != null">
+                and purpose=#{purpose,jdbcType=LONGVARCHAR}
+            </if>
+            <if test="body != null">
+                and body=#{body,jdbcType=LONGVARCHAR}
+            </if>
+        </where>
+    </select>
+</mapper>

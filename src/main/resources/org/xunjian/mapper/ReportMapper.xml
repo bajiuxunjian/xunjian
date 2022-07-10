@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.xunjian.mapper.ReportMapper">
+  <resultMap id="BaseResultMap" type="org.xunjian.model.Report">
+    <!--@mbg.generated-->
+    <!--@Table report-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="hospital_config_id" jdbcType="BIGINT" property="hospitalConfigId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="body" jdbcType="LONGVARCHAR" property="body" />
+    <result column="dt" jdbcType="DATE" property="dt" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, hospital_config_id, create_time, update_time, body, dt
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from report
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from report
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="org.xunjian.model.Report" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into report (hospital_config_id, create_time, update_time, 
+      body, dt)
+    values (#{hospitalConfigId,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{body,jdbcType=LONGVARCHAR}, #{dt,jdbcType=DATE})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="org.xunjian.model.Report" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into report
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="hospitalConfigId != null">
+        hospital_config_id,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="body != null">
+        body,
+      </if>
+      <if test="dt != null">
+        dt,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="hospitalConfigId != null">
+        #{hospitalConfigId,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="body != null">
+        #{body,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="dt != null">
+        #{dt,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.xunjian.model.Report">
+    <!--@mbg.generated-->
+    update report
+    <set>
+      <if test="hospitalConfigId != null">
+        hospital_config_id = #{hospitalConfigId,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="body != null">
+        body = #{body,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="dt != null">
+        dt = #{dt,jdbcType=DATE},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.xunjian.model.Report">
+    <!--@mbg.generated-->
+    update report
+    set hospital_config_id = #{hospitalConfigId,jdbcType=BIGINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      body = #{body,jdbcType=LONGVARCHAR},
+      dt = #{dt,jdbcType=DATE}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
