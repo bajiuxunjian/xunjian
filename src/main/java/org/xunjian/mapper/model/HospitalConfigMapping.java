@@ -1,4 +1,4 @@
-package org.xunjian.model;
+package org.xunjian.mapper.model;
 
 import java.util.Date;
 import lombok.Data;
@@ -8,16 +8,14 @@ import lombok.Data;
  * @date 2022/7/10
  */
 @Data
-public class Report {
+public class HospitalConfigMapping {
     private Long id;
 
     private Long hospitalConfigId;
 
+    private Long configId;
+
     private Date createTime;
 
     private Date updateTime;
-
-    private String body;
-
-    private Date dt;
 }

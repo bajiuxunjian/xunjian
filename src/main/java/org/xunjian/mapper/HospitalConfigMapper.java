@@ -2,7 +2,7 @@ package org.xunjian.mapper;
 
 import java.util.List;
 
-import org.xunjian.model.HospitalConfig;
+import org.xunjian.mapper.model.HospitalConfig;
 
 /**
  * @author xiangshuai

@@ -1,6 +1,6 @@
 package org.xunjian.mapper;
 
-import org.xunjian.model.Report;
+import org.xunjian.mapper.model.Report;
 
 /**
  * @author xiangshuai

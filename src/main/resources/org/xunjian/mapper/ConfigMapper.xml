@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.xunjian.mapper.ConfigMapper">
-  <resultMap id="BaseResultMap" type="org.xunjian.model.Config">
+  <resultMap id="BaseResultMap" type="org.xunjian.mapper.model.Config">
     <!--@mbg.generated-->
     <!--@Table config-->
     <id column="id" jdbcType="BIGINT" property="id" />
@@ -29,7 +29,7 @@
     delete from config
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="org.xunjian.model.Config" useGeneratedKeys="true">
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="org.xunjian.mapper.model.Config" useGeneratedKeys="true">
     <!--@mbg.generated-->
     insert into config (`name`, inspect_function, need_image,
       update_time, create_time, purpose,
@@ -38,7 +38,7 @@
       #{updateTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP}, #{purpose,jdbcType=LONGVARCHAR},
       #{body,jdbcType=LONGVARCHAR})
   </insert>
-  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="org.xunjian.model.Config" useGeneratedKeys="true">
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="org.xunjian.mapper.model.Config" useGeneratedKeys="true">
     <!--@mbg.generated-->
     insert into config
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -88,7 +88,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="org.xunjian.model.Config">
+  <update id="updateByPrimaryKeySelective" parameterType="org.xunjian.mapper.model.Config">
     <!--@mbg.generated-->
     update config
     <set>
@@ -116,7 +116,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="org.xunjian.model.Config">
+  <update id="updateByPrimaryKey" parameterType="org.xunjian.mapper.model.Config">
     <!--@mbg.generated-->
     update config
     set `name` = #{name,jdbcType=VARCHAR},

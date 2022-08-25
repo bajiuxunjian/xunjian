@@ -1,21 +1,22 @@
-package org.xunjian.model;
+package org.xunjian.mapper.model;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 /**
  * @author xiangshuai
  * @date 2022/7/10
  */
-public class HospitalConfigExample {
+public class ReportExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public HospitalConfigExample() {
+    public ReportExample() {
         oredCriteria = new ArrayList<>();
     }
 
@@ -109,6 +110,32 @@ public class HospitalConfigExample {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
+        protected void addCriterionForJDBCDate(String condition, Date value, String property) {
+            if (value == null) {
+                throw new RuntimeException("Value for " + property + " cannot be null");
+            }
+            addCriterion(condition, new java.sql.Date(value.getTime()), property);
+        }
+
+        protected void addCriterionForJDBCDate(String condition, List<Date> values, String property) {
+            if (values == null || values.size() == 0) {
+                throw new RuntimeException("Value list for " + property + " cannot be null or empty");
+            }
+            List<java.sql.Date> dateList = new ArrayList<>();
+            Iterator<Date> iter = values.iterator();
+            while (iter.hasNext()) {
+                dateList.add(new java.sql.Date(iter.next().getTime()));
+            }
+            addCriterion(condition, dateList, property);
+        }
+
+        protected void addCriterionForJDBCDate(String condition, Date value1, Date value2, String property) {
+            if (value1 == null || value2 == null) {
+                throw new RuntimeException("Between values for " + property + " cannot be null");
+            }
+            addCriterion(condition, new java.sql.Date(value1.getTime()), new java.sql.Date(value2.getTime()), property);
+        }
+
         public Criteria andIdIsNull() {
             addCriterion("id is null");
             return (Criteria) this;
@@ -169,123 +196,63 @@ public class HospitalConfigExample {
             return (Criteria) this;
         }
 
-        public Criteria andHospitalIdIsNull() {
-            addCriterion("hospital_id is null");
+        public Criteria andHospitalConfigIdIsNull() {
+            addCriterion("hospital_config_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andHospitalIdIsNotNull() {
-            addCriterion("hospital_id is not null");
+        public Criteria andHospitalConfigIdIsNotNull() {
+            addCriterion("hospital_config_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andHospitalIdEqualTo(Long value) {
-            addCriterion("hospital_id =", value, "hospitalId");
+        public Criteria andHospitalConfigIdEqualTo(Long value) {
+            addCriterion("hospital_config_id =", value, "hospitalConfigId");
             return (Criteria) this;
         }
 
-        public Criteria andHospitalIdNotEqualTo(Long value) {
-            addCriterion("hospital_id <>", value, "hospitalId");
+        public Criteria andHospitalConfigIdNotEqualTo(Long value) {
+            addCriterion("hospital_config_id <>", value, "hospitalConfigId");
             return (Criteria) this;
         }
 
-        public Criteria andHospitalIdGreaterThan(Long value) {
-            addCriterion("hospital_id >", value, "hospitalId");
+        public Criteria andHospitalConfigIdGreaterThan(Long value) {
+            addCriterion("hospital_config_id >", value, "hospitalConfigId");
             return (Criteria) this;
         }
 
-        public Criteria andHospitalIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("hospital_id >=", value, "hospitalId");
+        public Criteria andHospitalConfigIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("hospital_config_id >=", value, "hospitalConfigId");
             return (Criteria) this;
         }
 
-        public Criteria andHospitalIdLessThan(Long value) {
-            addCriterion("hospital_id <", value, "hospitalId");
+        public Criteria andHospitalConfigIdLessThan(Long value) {
+            addCriterion("hospital_config_id <", value, "hospitalConfigId");
             return (Criteria) this;
         }
 
-        public Criteria andHospitalIdLessThanOrEqualTo(Long value) {
-            addCriterion("hospital_id <=", value, "hospitalId");
+        public Criteria andHospitalConfigIdLessThanOrEqualTo(Long value) {
+            addCriterion("hospital_config_id <=", value, "hospitalConfigId");
             return (Criteria) this;
         }
 
-        public Criteria andHospitalIdIn(List<Long> values) {
-            addCriterion("hospital_id in", values, "hospitalId");
+        public Criteria andHospitalConfigIdIn(List<Long> values) {
+            addCriterion("hospital_config_id in", values, "hospitalConfigId");
             return (Criteria) this;
         }
 
-        public Criteria andHospitalIdNotIn(List<Long> values) {
-            addCriterion("hospital_id not in", values, "hospitalId");
+        public Criteria andHospitalConfigIdNotIn(List<Long> values) {
+            addCriterion("hospital_config_id not in", values, "hospitalConfigId");
             return (Criteria) this;
         }
 
-        public Criteria andHospitalIdBetween(Long value1, Long value2) {
-            addCriterion("hospital_id between", value1, value2, "hospitalId");
+        public Criteria andHospitalConfigIdBetween(Long value1, Long value2) {
+            addCriterion("hospital_config_id between", value1, value2, "hospitalConfigId");
             return (Criteria) this;
         }
 
-        public Criteria andHospitalIdNotBetween(Long value1, Long value2) {
-            addCriterion("hospital_id not between", value1, value2, "hospitalId");
-            return (Criteria) this;
-        }
-
-        public Criteria andTypeIsNull() {
-            addCriterion("`type` is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andTypeIsNotNull() {
-            addCriterion("`type` is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andTypeEqualTo(Integer value) {
-            addCriterion("`type` =", value, "type");
-            return (Criteria) this;
-        }
-
-        public Criteria andTypeNotEqualTo(Integer value) {
-            addCriterion("`type` <>", value, "type");
-            return (Criteria) this;
-        }
-
-        public Criteria andTypeGreaterThan(Integer value) {
-            addCriterion("`type` >", value, "type");
-            return (Criteria) this;
-        }
-
-        public Criteria andTypeGreaterThanOrEqualTo(Integer value) {
-            addCriterion("`type` >=", value, "type");
-            return (Criteria) this;
-        }
-
-        public Criteria andTypeLessThan(Integer value) {
-            addCriterion("`type` <", value, "type");
-            return (Criteria) this;
-        }
-
-        public Criteria andTypeLessThanOrEqualTo(Integer value) {
-            addCriterion("`type` <=", value, "type");
-            return (Criteria) this;
-        }
-
-        public Criteria andTypeIn(List<Integer> values) {
-            addCriterion("`type` in", values, "type");
-            return (Criteria) this;
-        }
-
-        public Criteria andTypeNotIn(List<Integer> values) {
-            addCriterion("`type` not in", values, "type");
-            return (Criteria) this;
-        }
-
-        public Criteria andTypeBetween(Integer value1, Integer value2) {
-            addCriterion("`type` between", value1, value2, "type");
-            return (Criteria) this;
-        }
-
-        public Criteria andTypeNotBetween(Integer value1, Integer value2) {
-            addCriterion("`type` not between", value1, value2, "type");
+        public Criteria andHospitalConfigIdNotBetween(Long value1, Long value2) {
+            addCriterion("hospital_config_id not between", value1, value2, "hospitalConfigId");
             return (Criteria) this;
         }
 
@@ -409,63 +376,133 @@ public class HospitalConfigExample {
             return (Criteria) this;
         }
 
-        public Criteria andStatusIsNull() {
-            addCriterion("`status` is null");
+        public Criteria andBodyIsNull() {
+            addCriterion("body is null");
             return (Criteria) this;
         }
 
-        public Criteria andStatusIsNotNull() {
-            addCriterion("`status` is not null");
+        public Criteria andBodyIsNotNull() {
+            addCriterion("body is not null");
             return (Criteria) this;
         }
 
-        public Criteria andStatusEqualTo(Integer value) {
-            addCriterion("`status` =", value, "status");
+        public Criteria andBodyEqualTo(String value) {
+            addCriterion("body =", value, "body");
             return (Criteria) this;
         }
 
-        public Criteria andStatusNotEqualTo(Integer value) {
-            addCriterion("`status` <>", value, "status");
+        public Criteria andBodyNotEqualTo(String value) {
+            addCriterion("body <>", value, "body");
             return (Criteria) this;
         }
 
-        public Criteria andStatusGreaterThan(Integer value) {
-            addCriterion("`status` >", value, "status");
+        public Criteria andBodyGreaterThan(String value) {
+            addCriterion("body >", value, "body");
             return (Criteria) this;
         }
 
-        public Criteria andStatusGreaterThanOrEqualTo(Integer value) {
-            addCriterion("`status` >=", value, "status");
+        public Criteria andBodyGreaterThanOrEqualTo(String value) {
+            addCriterion("body >=", value, "body");
             return (Criteria) this;
         }
 
-        public Criteria andStatusLessThan(Integer value) {
-            addCriterion("`status` <", value, "status");
+        public Criteria andBodyLessThan(String value) {
+            addCriterion("body <", value, "body");
             return (Criteria) this;
         }
 
-        public Criteria andStatusLessThanOrEqualTo(Integer value) {
-            addCriterion("`status` <=", value, "status");
+        public Criteria andBodyLessThanOrEqualTo(String value) {
+            addCriterion("body <=", value, "body");
             return (Criteria) this;
         }
 
-        public Criteria andStatusIn(List<Integer> values) {
-            addCriterion("`status` in", values, "status");
+        public Criteria andBodyLike(String value) {
+            addCriterion("body like", value, "body");
             return (Criteria) this;
         }
 
-        public Criteria andStatusNotIn(List<Integer> values) {
-            addCriterion("`status` not in", values, "status");
+        public Criteria andBodyNotLike(String value) {
+            addCriterion("body not like", value, "body");
             return (Criteria) this;
         }
 
-        public Criteria andStatusBetween(Integer value1, Integer value2) {
-            addCriterion("`status` between", value1, value2, "status");
+        public Criteria andBodyIn(List<String> values) {
+            addCriterion("body in", values, "body");
             return (Criteria) this;
         }
 
-        public Criteria andStatusNotBetween(Integer value1, Integer value2) {
-            addCriterion("`status` not between", value1, value2, "status");
+        public Criteria andBodyNotIn(List<String> values) {
+            addCriterion("body not in", values, "body");
+            return (Criteria) this;
+        }
+
+        public Criteria andBodyBetween(String value1, String value2) {
+            addCriterion("body between", value1, value2, "body");
+            return (Criteria) this;
+        }
+
+        public Criteria andBodyNotBetween(String value1, String value2) {
+            addCriterion("body not between", value1, value2, "body");
+            return (Criteria) this;
+        }
+
+        public Criteria andDtIsNull() {
+            addCriterion("dt is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDtIsNotNull() {
+            addCriterion("dt is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDtEqualTo(Date value) {
+            addCriterionForJDBCDate("dt =", value, "dt");
+            return (Criteria) this;
+        }
+
+        public Criteria andDtNotEqualTo(Date value) {
+            addCriterionForJDBCDate("dt <>", value, "dt");
+            return (Criteria) this;
+        }
+
+        public Criteria andDtGreaterThan(Date value) {
+            addCriterionForJDBCDate("dt >", value, "dt");
+            return (Criteria) this;
+        }
+
+        public Criteria andDtGreaterThanOrEqualTo(Date value) {
+            addCriterionForJDBCDate("dt >=", value, "dt");
+            return (Criteria) this;
+        }
+
+        public Criteria andDtLessThan(Date value) {
+            addCriterionForJDBCDate("dt <", value, "dt");
+            return (Criteria) this;
+        }
+
+        public Criteria andDtLessThanOrEqualTo(Date value) {
+            addCriterionForJDBCDate("dt <=", value, "dt");
+            return (Criteria) this;
+        }
+
+        public Criteria andDtIn(List<Date> values) {
+            addCriterionForJDBCDate("dt in", values, "dt");
+            return (Criteria) this;
+        }
+
+        public Criteria andDtNotIn(List<Date> values) {
+            addCriterionForJDBCDate("dt not in", values, "dt");
+            return (Criteria) this;
+        }
+
+        public Criteria andDtBetween(Date value1, Date value2) {
+            addCriterionForJDBCDate("dt between", value1, value2, "dt");
+            return (Criteria) this;
+        }
+
+        public Criteria andDtNotBetween(Date value1, Date value2) {
+            addCriterionForJDBCDate("dt not between", value1, value2, "dt");
             return (Criteria) this;
         }
     }

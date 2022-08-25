@@ -1,6 +1,6 @@
 package org.xunjian.mapper;
 
-import org.xunjian.model.HospitalConfigMapping;
+import org.xunjian.mapper.model.HospitalConfigMapping;
 
 /**
  * @author xiangshuai

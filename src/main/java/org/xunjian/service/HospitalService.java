@@ -4,7 +4,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 import org.xunjian.mapper.HospitalMapper;
-import org.xunjian.model.Hospital;
+import org.xunjian.mapper.model.Hospital;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
@@ -34,6 +34,7 @@ public class HospitalService {
     public Hospital selectByPrimaryKey(Long id) {
         return hospitalMapper.selectByPrimaryKey(id);
     }
+
 
     public Page<Hospital> listByAll(Hospital hospital, int pageNum, int pageSize) {
         Page<Hospital> pageRes = PageHelper.startPage(pageNum, pageSize);

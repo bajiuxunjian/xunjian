@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.xunjian.model.HospitalConfig;
+import org.xunjian.mapper.model.HospitalConfig;
 import org.xunjian.service.HospitalConfigService;
 import org.xunjian.vo.BaseResponse;
 
@@ -22,7 +22,7 @@ import io.swagger.annotations.ApiParam;
  * @date 2022/7/10
  */
 @RestController
-@RequestMapping("/configcenter/hospital/config")
+    @RequestMapping("/configcenter/hospital/config")
 @Api(tags = "com.xunjian.configcenter.controller.configcenter.HospitalConfigController", description = "医院配置接口")
 public class HospitalConfigController {
     @Resource

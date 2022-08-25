@@ -6,7 +6,7 @@ import javax.annotation.Resource;
 
 import org.junit.jupiter.api.Test;
 import org.xunjian.TestBase;
-import org.xunjian.model.Hospital;
+import org.xunjian.mapper.model.Hospital;
 
 /**
  * @author xiangshuai

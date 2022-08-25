@@ -3,7 +3,7 @@ package org.xunjian.service;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import org.xunjian.mapper.HospitalConfigMappingMapper;
-import org.xunjian.model.HospitalConfigMapping;
+import org.xunjian.mapper.model.HospitalConfigMapping;
 /**
  * @author xiangshuai
  * @date 2022/7/10

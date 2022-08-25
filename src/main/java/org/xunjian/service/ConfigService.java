@@ -4,7 +4,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 import org.xunjian.mapper.ConfigMapper;
-import org.xunjian.model.Config;
+import org.xunjian.mapper.model.Config;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.xunjian.mapper.HospitalConfigMapper">
-  <resultMap id="BaseResultMap" type="org.xunjian.model.HospitalConfig">
+  <resultMap id="BaseResultMap" type="org.xunjian.mapper.model.HospitalConfig">
     <!--@mbg.generated-->
     <!--@Table hospital_config-->
     <id column="id" jdbcType="BIGINT" property="id" />
@@ -27,14 +27,14 @@
     delete from hospital_config
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="org.xunjian.model.HospitalConfig" useGeneratedKeys="true">
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="org.xunjian.mapper.model.HospitalConfig" useGeneratedKeys="true">
     <!--@mbg.generated-->
     insert into hospital_config (hospital_id, `type`, create_time,
       update_time, `status`)
     values (#{hospitalId,jdbcType=BIGINT}, #{type,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP},
       #{updateTime,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="org.xunjian.model.HospitalConfig" useGeneratedKeys="true">
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="org.xunjian.mapper.model.HospitalConfig" useGeneratedKeys="true">
     <!--@mbg.generated-->
     insert into hospital_config
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -72,7 +72,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="org.xunjian.model.HospitalConfig">
+  <update id="updateByPrimaryKeySelective" parameterType="org.xunjian.mapper.model.HospitalConfig">
     <!--@mbg.generated-->
     update hospital_config
     <set>
@@ -94,7 +94,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="org.xunjian.model.HospitalConfig">
+  <update id="updateByPrimaryKey" parameterType="org.xunjian.mapper.model.HospitalConfig">
     <!--@mbg.generated-->
     update hospital_config
     set hospital_id = #{hospitalId,jdbcType=BIGINT},

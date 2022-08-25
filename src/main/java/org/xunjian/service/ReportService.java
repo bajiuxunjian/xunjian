@@ -3,7 +3,7 @@ package org.xunjian.service;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import org.xunjian.mapper.ReportMapper;
-import org.xunjian.model.Report;
+import org.xunjian.mapper.model.Report;
 /**
  * @author xiangshuai
  * @date 2022/7/10

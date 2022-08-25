@@ -4,7 +4,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 import org.xunjian.mapper.HospitalConfigMapper;
-import org.xunjian.model.HospitalConfig;
+import org.xunjian.mapper.model.HospitalConfig;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;

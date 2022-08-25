@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.xunjian.mapper.ReportMapper">
-  <resultMap id="BaseResultMap" type="org.xunjian.model.Report">
+  <resultMap id="BaseResultMap" type="org.xunjian.mapper.model.Report">
     <!--@mbg.generated-->
     <!--@Table report-->
     <id column="id" jdbcType="BIGINT" property="id" />
@@ -27,14 +27,14 @@
     delete from report
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="org.xunjian.model.Report" useGeneratedKeys="true">
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="org.xunjian.mapper.model.Report" useGeneratedKeys="true">
     <!--@mbg.generated-->
     insert into report (hospital_config_id, create_time, update_time, 
       body, dt)
     values (#{hospitalConfigId,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
       #{body,jdbcType=LONGVARCHAR}, #{dt,jdbcType=DATE})
   </insert>
-  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="org.xunjian.model.Report" useGeneratedKeys="true">
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="org.xunjian.mapper.model.Report" useGeneratedKeys="true">
     <!--@mbg.generated-->
     insert into report
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -72,7 +72,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="org.xunjian.model.Report">
+  <update id="updateByPrimaryKeySelective" parameterType="org.xunjian.mapper.model.Report">
     <!--@mbg.generated-->
     update report
     <set>
@@ -94,7 +94,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="org.xunjian.model.Report">
+  <update id="updateByPrimaryKey" parameterType="org.xunjian.mapper.model.Report">
     <!--@mbg.generated-->
     update report
     set hospital_config_id = #{hospitalConfigId,jdbcType=BIGINT},

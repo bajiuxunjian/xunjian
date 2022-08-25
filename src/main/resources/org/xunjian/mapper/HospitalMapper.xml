@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.xunjian.mapper.HospitalMapper">
-  <resultMap id="BaseResultMap" type="org.xunjian.model.Hospital">
+  <resultMap id="BaseResultMap" type="org.xunjian.mapper.model.Hospital">
     <!--@mbg.generated-->
     <!--@Table hospital-->
     <id column="id" jdbcType="BIGINT" property="id" />
@@ -28,7 +28,7 @@
     delete from hospital
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="org.xunjian.model.Hospital" useGeneratedKeys="true">
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="org.xunjian.mapper.model.Hospital" useGeneratedKeys="true">
     <!--@mbg.generated-->
     insert into hospital (`name`, `position`, phone,
       description, create_time, update_time
@@ -37,7 +37,7 @@
       #{description,jdbcType=LONGVARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
       )
   </insert>
-  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="org.xunjian.model.Hospital" useGeneratedKeys="true">
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="org.xunjian.mapper.model.Hospital" useGeneratedKeys="true">
     <!--@mbg.generated-->
     insert into hospital
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -81,7 +81,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="org.xunjian.model.Hospital">
+  <update id="updateByPrimaryKeySelective" parameterType="org.xunjian.mapper.model.Hospital">
     <!--@mbg.generated-->
     update hospital
     <set>
@@ -106,7 +106,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="org.xunjian.model.Hospital">
+  <update id="updateByPrimaryKey" parameterType="org.xunjian.mapper.model.Hospital">
     <!--@mbg.generated-->
     update hospital
     set `name` = #{name,jdbcType=VARCHAR},

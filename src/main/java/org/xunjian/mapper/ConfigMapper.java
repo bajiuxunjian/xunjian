@@ -2,7 +2,8 @@ package org.xunjian.mapper;
 
 import java.util.List;
 
-import org.xunjian.model.Config;
+import org.apache.ibatis.annotations.Select;
+import org.xunjian.mapper.model.Config;
 
 /**
  * @author xiangshuai
@@ -22,5 +23,8 @@ public interface ConfigMapper {
     int updateByPrimaryKey(Config record);
 
     List<Config> listByAll(Config config);
+
+
+
 
 }

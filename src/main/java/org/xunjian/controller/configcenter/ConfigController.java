@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.xunjian.model.Config;
+import org.xunjian.mapper.model.Config;
 import org.xunjian.service.ConfigService;
 import org.xunjian.vo.BaseResponse;
 

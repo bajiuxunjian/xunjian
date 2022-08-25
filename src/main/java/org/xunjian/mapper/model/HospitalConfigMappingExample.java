@@ -1,4 +1,4 @@
-package org.xunjian.model;
+package org.xunjian.mapper.model;
 
 import java.util.ArrayList;
 import java.util.Date;
