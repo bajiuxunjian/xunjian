@@ -5,10 +5,7 @@ import com.github.pagehelper.Page;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.xunjian.mapper.model.Hospital;
 import org.xunjian.mapper.model.Inspect;
 import org.xunjian.service.InspectService;
@@ -40,6 +37,28 @@ public class InspectorController {
         inspectService.deleteByPrimaryKey(id);
         return BaseResponse.success();
     }
+
+    @GetMapping("/get")
+    @ApiOperation("检测项详情")
+    public BaseResponse<Inspect> get(Integer id) {
+        Inspect inspect = inspectService.selectByPrimaryKey(id);
+        return BaseResponse.success(inspect);
+    }
+
+    @PostMapping("/create")
+    @ApiOperation("创建检测项详情")
+    public BaseResponse create(@RequestBody Inspect inspect) {
+        inspectService.insert(inspect);
+        return BaseResponse.success();
+    }
+
+    @PostMapping("/update")
+    @ApiOperation("更新检测项详情")
+    public BaseResponse update(@RequestBody Inspect inspect) {
+        inspectService.updateByPrimaryKeySelective(inspect);;
+        return BaseResponse.success();
+    }
+
 
 
 }

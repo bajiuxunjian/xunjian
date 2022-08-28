@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.xunjian.mapper.ChecklistMapper">
+  <resultMap id="BaseResultMap" type="org.xunjian.mapper.model.Checklist">
+    <!--@mbg.generated-->
+    <!--@Table checklist-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="LONGVARCHAR" property="name" />
+    <result column="updatetime" jdbcType="TIMESTAMP" property="updatetime" />
+    <result column="inspect" jdbcType="LONGVARCHAR" property="inspect" />
+    <result column="inspect_config" jdbcType="LONGVARCHAR" property="inspectConfig" />
+    <result column="hospital_id" jdbcType="INTEGER" property="hospitalId" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, `name`, updatetime, inspect, inspect_config, hospital_id, `type`, `status`
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from checklist
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from checklist
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="org.xunjian.mapper.model.Checklist" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into checklist (`name`, updatetime, inspect, 
+      inspect_config, hospital_id, `type`, 
+      `status`)
+    values (#{name,jdbcType=LONGVARCHAR}, #{updatetime,jdbcType=TIMESTAMP}, #{inspect,jdbcType=LONGVARCHAR}, 
+      #{inspectConfig,jdbcType=LONGVARCHAR}, #{hospitalId,jdbcType=INTEGER}, #{type,jdbcType=INTEGER}, 
+      #{status,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="org.xunjian.mapper.model.Checklist" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into checklist
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+      <if test="inspect != null">
+        inspect,
+      </if>
+      <if test="inspectConfig != null">
+        inspect_config,
+      </if>
+      <if test="hospitalId != null">
+        hospital_id,
+      </if>
+      <if test="type != null">
+        `type`,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        #{name,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="inspect != null">
+        #{inspect,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="inspectConfig != null">
+        #{inspectConfig,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="hospitalId != null">
+        #{hospitalId,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.xunjian.mapper.model.Checklist">
+    <!--@mbg.generated-->
+    update checklist
+    <set>
+      <if test="name != null">
+        `name` = #{name,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="updatetime != null">
+        updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="inspect != null">
+        inspect = #{inspect,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="inspectConfig != null">
+        inspect_config = #{inspectConfig,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="hospitalId != null">
+        hospital_id = #{hospitalId,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        `type` = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.xunjian.mapper.model.Checklist">
+    <!--@mbg.generated-->
+    update checklist
+    set `name` = #{name,jdbcType=LONGVARCHAR},
+      updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      inspect = #{inspect,jdbcType=LONGVARCHAR},
+      inspect_config = #{inspectConfig,jdbcType=LONGVARCHAR},
+      hospital_id = #{hospitalId,jdbcType=INTEGER},
+      `type` = #{type,jdbcType=INTEGER},
+      `status` = #{status,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+<!--auto generated by MybatisCodeHelper on 2022-08-26-->
+  <select id="listByAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from checklist
+    <where>
+      <if test="id != null">
+        and id=#{id,jdbcType=INTEGER}
+      </if>
+      <if test="name != null">
+        and `name`=#{name,jdbcType=LONGVARCHAR}
+      </if>
+      <if test="updatetime != null">
+        and updatetime=#{updatetime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="inspect != null">
+        and inspect=#{inspect,jdbcType=LONGVARCHAR}
+      </if>
+      <if test="inspectConfig != null">
+        and inspect_config=#{inspectConfig,jdbcType=LONGVARCHAR}
+      </if>
+      <if test="hospitalId != null">
+        and hospital_id=#{hospitalId,jdbcType=INTEGER}
+      </if>
+      <if test="type != null">
+        and `type`=#{type,jdbcType=INTEGER}
+      </if>
+    </where>
+  </select>
+</mapper>

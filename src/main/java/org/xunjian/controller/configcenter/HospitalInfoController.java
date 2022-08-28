@@ -31,6 +31,10 @@ public class HospitalInfoController {
         return BaseResponse.success(hospitals);
     }
 
+
+
+
+
     @GetMapping("/get")
     @ApiOperation("医院详情")
     public BaseResponse<HospitalList> get(Integer id) {
@@ -50,6 +54,13 @@ public class HospitalInfoController {
     @ApiOperation("更新医院信息")
     public BaseResponse update(@RequestBody HospitalList hospitalInfo) {
         HospitalListService.updateByPrimaryKeySelective(hospitalInfo);
+        return BaseResponse.success();
+    }
+
+    @PostMapping("/create")
+    @ApiOperation("创建医院")
+    public BaseResponse create(@RequestBody HospitalList hospitalInfo) {
+        HospitalListService.insert(hospitalInfo);
         return BaseResponse.success();
     }
 }
