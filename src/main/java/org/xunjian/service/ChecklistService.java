@@ -7,6 +7,8 @@ import javax.annotation.Resource;
 import org.xunjian.mapper.model.Checklist;
 import org.xunjian.mapper.ChecklistMapper;
 
+import java.util.List;
+
 @Service
 public class ChecklistService {
 
@@ -48,7 +50,13 @@ public class ChecklistService {
         checklistMapper.listByAll(checklist);
         return pageRes;
     }
+
+    public List<Checklist> listByAllNoPage(Checklist checklist) {
+        return checklistMapper.listByAll(checklist);
+    }
+
 }
+
 
 
 

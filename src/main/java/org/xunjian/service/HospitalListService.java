@@ -47,6 +47,10 @@ public class HospitalListService{
         hospitalListMapper.listByAll(hospitallist);
         return pageRes;
     }
+
+    public List<HospitalList> listAll(HospitalList hospitallist) {
+        return hospitalListMapper.listByAll(hospitallist);
+    }
     
     public int updateByPrimaryKey(HospitalList record) {
         return hospitalListMapper.updateByPrimaryKey(record);
