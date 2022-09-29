@@ -11,6 +11,8 @@ import org.xunjian.service.ChecklistService;
 import org.xunjian.vo.BaseResponse;
 
 import javax.annotation.Resource;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @CrossOrigin
@@ -51,6 +53,18 @@ public class CheckListController {
         checklistService.updateByPrimaryKeySelective(checklist);
         return BaseResponse.success();
     }
+
+    @PostMapping("/create")
+    @ApiOperation("创建新单子")
+    public BaseResponse createList(@RequestBody Checklist checklist) {
+        Date date = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        checklist.setName(dateFormat.format(date));
+        checklistService.insert(checklist);
+        return BaseResponse.success();
+    }
+
+
 
 
 

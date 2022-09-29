@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.xunjian.mapper.model.Inspect;
 import org.xunjian.mapper.model.User;
 import org.xunjian.service.UserService;
 import org.xunjian.vo.BaseResponse;
@@ -38,4 +39,14 @@ public class UserController {
             return  BaseResponse.error(USER_OR_PASSWORD_ERROR);
         }
     }
+
+    @GetMapping("/get")
+    @ApiOperation("获取详情")
+    public BaseResponse<User> get(Integer id) {
+        User user = userService.selectByPrimaryKey(id);
+        return BaseResponse.success(user);
+    }
+
+
+
 }

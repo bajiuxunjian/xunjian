@@ -124,35 +124,35 @@ public class TimeTask {
         }
     }
 
-    @Scheduled(cron = "0 0 0 1 * ? *")
-    public void timeTestYear() {
-        // 元旦执行
-        // 获取当前时间
-        Date date = new Date();
-        // 拉取所有医院, 根据配置去checklist表中去创建信息
-        HospitalList hospitalList = new HospitalList();
-        List<HospitalList> hospitalLists = hospitalListService.listAll(hospitalList);
-
-        for (HospitalList list : hospitalLists) {
-            if(list.getYearConfig() != null) {
-                log.info(String.valueOf(list));
-                Checklist checklist = new Checklist();
-                // 设置关联医院
-                checklist.setHospitalId(list.getId());
-                // 设置名称为日期
-                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-                checklist.setName(dateFormat.format(date));
-
-//                // 日志测试
-//                SimpleDateFormat dateFormat_min = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-//                log.info(dateFormat_min.format(date));
-
-                // 设置检测类型 1为日检
-                checklist.setType(3);
-                // dayConfig
-                checklist.setInspectConfig(list.getYearConfig());
-                checklistService.insert(checklist);
-            }
-        }
-    }
+//    @Scheduled(cron = "0 0 0 1 * ? *")
+//    public void timeTestYear() {
+//        // 元旦执行
+//        // 获取当前时间
+//        Date date = new Date();
+//        // 拉取所有医院, 根据配置去checklist表中去创建信息
+//        HospitalList hospitalList = new HospitalList();
+//        List<HospitalList> hospitalLists = hospitalListService.listAll(hospitalList);
+//
+//        for (HospitalList list : hospitalLists) {
+//            if(list.getYearConfig() != null) {
+//                log.info(String.valueOf(list));
+//                Checklist checklist = new Checklist();
+//                // 设置关联医院
+//                checklist.setHospitalId(list.getId());
+//                // 设置名称为日期
+//                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+//                checklist.setName(dateFormat.format(date));
+//
+////                // 日志测试
+////                SimpleDateFormat dateFormat_min = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+////                log.info(dateFormat_min.format(date));
+//
+//                // 设置检测类型 1为日检
+//                checklist.setType(3);
+//                // dayConfig
+//                checklist.setInspectConfig(list.getYearConfig());
+//                checklistService.insert(checklist);
+//            }
+//        }
+//    }
 }
