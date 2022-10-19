@@ -3,10 +3,7 @@ package org.xunjian.controller.configcenter;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.xunjian.mapper.model.Inspect;
 import org.xunjian.mapper.model.User;
 import org.xunjian.service.UserService;
@@ -45,6 +42,29 @@ public class UserController {
     public BaseResponse<User> get(Integer id) {
         User user = userService.selectByPrimaryKey(id);
         return BaseResponse.success(user);
+    }
+
+    @PostMapping("/create")
+    @ApiOperation("创建用户")
+    public BaseResponse<User> create(@RequestBody User user) {
+        userService.insert(user);
+        return BaseResponse.success(user);
+    }
+
+    @PostMapping("/update")
+    @ApiOperation("更新用户")
+    public BaseResponse<User> update(@RequestBody User user) {
+        userService.updateByPrimaryKeySelective(user);
+        return BaseResponse.success(user);
+    }
+
+
+
+    @GetMapping("/list")
+    @ApiOperation("用户列表")
+    public BaseResponse<List<User>> list(User user) {
+        List<User> users = userService.listByAll(user);
+        return BaseResponse.success(users);
     }
 
 

@@ -6,6 +6,8 @@ import javax.annotation.Resource;
 
 import org.springframework.transaction.annotation.Transactional;
 import org.xunjian.mapper.UserMapper;
+import org.xunjian.mapper.model.HospitalList;
+import org.xunjian.mapper.model.Inspect;
 import org.xunjian.mapper.model.User;
 
 import java.util.List;
@@ -54,6 +56,10 @@ public class UserService {
 
     public List<User> selectByUsername(String username) {
         return userMapper.selectByUsername(username);
+    }
+
+    public List<User> listByAll(User record) {
+        return userMapper.listByAll(record);
     }
 
 }

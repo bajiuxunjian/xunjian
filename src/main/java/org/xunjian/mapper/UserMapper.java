@@ -1,6 +1,8 @@
 package org.xunjian.mapper;
 
-import org.apache.ibatis.annotations.Param;import org.xunjian.mapper.model.User;import java.util.List;
+import org.apache.ibatis.annotations.Param;
+import org.xunjian.mapper.model.HospitalList;
+import org.xunjian.mapper.model.User;import java.util.List;
 
 public interface UserMapper {
     int deleteByPrimaryKey(Integer id);
@@ -23,6 +25,9 @@ public interface UserMapper {
 
 
     List<User> selectByUsername(@Param("username")String username);
+
+
+    List<User> listByAll(User user);
 
 
 }
